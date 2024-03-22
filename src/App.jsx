@@ -2,18 +2,30 @@ import './App.css'
 import { GetMovies } from './getMoviesFromApi'
 import { MovieList } from './movieLIst'
 import { Header } from './header'
-import { Routes, Route } from 'react-router-dom';
-import ReservationPages from './reservationPages';
+import ReservationPages from './ReservationPage';
 
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "",
+    element: <MovieList/>,
+  },
+  {
+    path: "/reservation/:id",
+    element: <ReservationPages />
+  }
+]);
 
 function App() {
 
   return (
     <>
       <Header/>
-    
-        <MovieList />
-      
+      <RouterProvider router={router} />
     </>
     
   )
