@@ -1,42 +1,57 @@
 .sidebar {
-    border: 1px solid #333;
-    width: 200px;
-    padding: 20px;
-    margin-top: 100px;
-  }
-  
-  .sidebar h2 {
-    color: #333;
-    
-  }
-  
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-    
-  }
-  
-  .sidebar li {
-    margin-bottom: 10px;
-    cursor: pointer;
-    
-  }
-  
-  .sidebar li.selected {
-    font-weight: bold;
-  }
-  
-  .schedule {
-    margin-top: 20px;
-    
-  }
-  
-  .schedule h3 {
-    color: #333;
-    
-  }
-  
-  .schedule ul {
-    padding-left: 20px;
-  }
-  
+  list-style-type: none; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  cursor: pointer;
+}
+.sidebar li {
+  margin-right: 10px;
+  width: 100px;
+  height: 40px;
+  border: 1px solid pink;
+  display: flex;
+  position: relative;
+  bottom: 38px;
+  justify-content: center; 
+  align-items: center;
+  border-radius: 30px;
+  box-shadow: 0 1px 8px rgb(206, 206, 206) ;
+
+}
+.sidebar li:hover {
+  background-color: rgb(250, 160, 175);
+
+}
+.schedule {
+  list-style-type: none;
+  padding: 50px;
+  display: flex; 
+  position: relative;
+  top: 10px;
+  justify-content: center; 
+  align-items: center;
+}
+.schedule li {
+  display: flex;
+  position: relative;
+  justify-content: center; 
+  align-items: center;
+  margin-right: 10px;
+  bottom: 90px;
+  width: 100px;
+  height: 40px;
+  border: 1px solid pink;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 1px 8px rgb(252, 206, 206) ;
+}
+li.selected {
+  background-color: rgb(255, 99, 125) ;
+  cursor:auto;
+}
+li:hover:not(:active){
+  background-color: rgb(255, 99, 125) ;
+
+}
+

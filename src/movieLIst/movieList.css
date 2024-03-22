@@ -41,7 +41,7 @@
     color: rgb(44, 44, 44);
     transition: transform 0.3s ease;
 }
-.movie-card:hover {
+.movie-card img:hover {
     transform: scale(1.05);
 }
 

@@ -1,17 +1,19 @@
 import './App.css'
 import { GetMovies } from './getMoviesFromApi'
-import { Header } from './header'
 import { MovieList } from './movieLIst'
-// import{ Sidebar } from './sidebar'
+import { Header } from './header'
+import { Routes, Route } from 'react-router-dom';
+import ReservationPages from './reservationPages';
 
 
 function App() {
 
   return (
     <>
-      <Header />
-      <MovieList />
-      {/* <Sidebar /> */}
+      <Header/>
+    
+        <MovieList />
+      
     </>
     
   )

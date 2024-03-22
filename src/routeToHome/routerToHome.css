@@ -1,0 +1,15 @@
+.home {
+    display: flex;
+    position: relative;
+    bottom: 35px;
+    width: 320px;
+    height: 129px;
+    align-items: center;    
+    margin-left:1300px;
+    list-style-type: none;
+    color: #ff99aa;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 1000;
+}
+  
