@@ -1,0 +1,42 @@
+.sidebar {
+    border: 1px solid #333;
+    width: 200px;
+    padding: 20px;
+    margin-top: 100px;
+  }
+  
+  .sidebar h2 {
+    color: #333;
+    
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    
+  }
+  
+  .sidebar li.selected {
+    font-weight: bold;
+  }
+  
+  .schedule {
+    margin-top: 20px;
+    
+  }
+  
+  .schedule h3 {
+    color: #333;
+    
+  }
+  
+  .schedule ul {
+    padding-left: 20px;
+  }
+  
