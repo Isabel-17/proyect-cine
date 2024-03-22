@@ -4,7 +4,6 @@ import { Home } from './routeToHome';
 import { SideBar } from './sidebar';
 import { useParams } from 'react-router-dom';
 import { getMovieByID } from './getMoviesFromApi';
-import { Route, Routes } from 'react-router-dom';
 
 function ReservationPages() {
 
