@@ -22,7 +22,9 @@ export function MovieList() {
                 <ul className='movies-grid'>
                     {movies.map((movie) => (
                         <li key={movie.id} className='movie-card'>
-                            <Link to={`/reservation/${movie.id}`}>
+                            <Link 
+                                className='link'
+                                to={`/reservation/${movie.id}`}>
                                 <img src={movie.url} />
                                 <h2>{movie.name}</h2>
                                 <p>Director: {movie.director}</p>

@@ -46,11 +46,11 @@
   cursor: pointer;
   box-shadow: 0 1px 8px rgb(252, 206, 206) ;
 }
-li.selected {
+.selected {
   background-color: rgb(255, 99, 125) ;
   cursor:auto;
 }
-li:hover:not(:active){
+.selected:hover:not(:active){
   background-color: rgb(255, 99, 125) ;
 
 }
