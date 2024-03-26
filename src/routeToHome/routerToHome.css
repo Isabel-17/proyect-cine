@@ -1,9 +1,6 @@
 .home {
     display: flex;
     position: relative;
-    bottom: 35px;
-    width: 320px;
-    height: 129px;
     align-items: center;    
     margin-left:1300px;
     list-style-type: none;

@@ -1,0 +1,12 @@
+.chair {
+    display: grid;
+    grid-template-columns: repeat(6, 10fr);
+    gap: 10px;
+}
+
+.container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    margin: 70px;}

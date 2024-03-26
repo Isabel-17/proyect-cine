@@ -1,5 +1,4 @@
 import './App.css'
-import { GetMovies } from './getMoviesFromApi'
 import { MovieList } from './movieLIst'
 import { Header } from './header'
 import ReservationPages from './ReservationPage';
@@ -21,7 +20,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-
   return (
     <>
       <Header/>
