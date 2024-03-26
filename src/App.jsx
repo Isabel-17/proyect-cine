@@ -1,4 +1,3 @@
-import './App.css'
 import { MovieList } from './movieLIst'
 import { Header } from './header'
 import ReservationPages from './ReservationPage';

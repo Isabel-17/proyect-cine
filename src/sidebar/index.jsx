@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
+import { ChairComponent } from '../chairComponent';
+import { getChairFromJson } from '../getDataFromApi';
 
 export function SideBar () {
   const [selectedDay, setSelectedDay] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
+  const [chairs, setChairs] = useState([]);
 
 
   const schedules = {
@@ -75,17 +78,22 @@ export function SideBar () {
     setSelectedDay(day);
     setSelectedTime(null)
   };
+  
+const handelTimeClick = async (time) => {
+    setSelectedTime(time);
+    const chairsForTime = await getChairFromJson(time); 
+    setChairs(chairsForTime);
+  };
 
-  const handelTimeClick = (time) => {
-    setSelectedTime(time)     
-  }
-
-
+  
   return (
     <div className="content-sidebar">
       <ul className='sidebar'>
         {Object.keys(schedules).map((day) => (
-          <li key={day} onClick={() => handleDayClick(day)} className={selectedDay === day ? 'selected' : ''}>
+          <li key={day} 
+            onClick={() => handleDayClick(day)} 
+            className={selectedDay === day ? 'selected' : ''}
+          >
             {day}
           </li>
         ))}
@@ -100,9 +108,10 @@ export function SideBar () {
                 className={selectedTime === time ? 'selected' : ''} 
               >
                 {time}
-              </li>
+              </li>            
             ))}
           </ul>
+          { selectedTime && <ChairComponent chairs={chairs}/> }
         </div>
       )}
     </div>

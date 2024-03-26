@@ -12,8 +12,6 @@ function ReservationPages() {
       <Home /> 
       <Header />
       <SideBar />
-      <ChairComponent />
-
     </>
   );
 }

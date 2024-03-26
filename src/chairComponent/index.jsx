@@ -10,8 +10,6 @@ export function ChairComponent () {
         dataChair()
     },[])
 
-
-
     const dataChair = async () => {
         const result = await getChairFromJson()
         const chairByColor = result.map(chair => ({...chair, color:'#FF768E'}));
