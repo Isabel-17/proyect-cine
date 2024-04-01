@@ -18,12 +18,13 @@ export function ChairComponent ({day, hour}) {
 
     const handleClick = (id) => {
         let result = markChairAsBussy(chairReservations,day, hour, id)
-        console.log(result)
+        // console.log( "sillas seleccionadas:", result)
         setReservations(result)
     } 
 
     const colorByStatus = (day, hour, id) => {
         let isReserved = chairReservations?.[day]?.[hour]?.[id]
+        // console.log("sillas reservadas:",isReserved);
         return isReserved ? "#0d4146" : "#FFC4CE"
     }
 
