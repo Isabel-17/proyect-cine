@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
 import { ChairComponent } from '../chairComponent';
-import { getChairFromJson } from '../getDataFromApi';
+import { markChairAsBussy } from '../getDataFromApi';
 
-export function SideBar () {
+export function Resevation ({day, hour}) {
   const [selectedDay, setSelectedDay] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
+  const [chairReservations, setReservations] = useState({})
+
 
   const schedules = {
     lunes: [
@@ -81,6 +83,17 @@ export function SideBar () {
     setSelectedTime(time);
   };
 
+  const handleClick = (id) => {
+    let result = markChairAsBussy(chairReservations,day, hour, id)
+    console.log(result);
+    setReservations(result)
+  } 
+
+  const colorByStatus = (day, hour, id) => {
+    let isReserved = chairReservations?.[day]?.[hour]?.[id]
+    return isReserved ? "#0d4146" : "#FFC4CE"
+  }
+
   
   return (
     <div className="content-sidebar">
@@ -107,7 +120,14 @@ export function SideBar () {
               </li>            
             ))}
           </ul>
-          { selectedTime && <ChairComponent day={selectedDay} hour={selectedTime}/> }
+          { selectedTime && 
+            <ChairComponent 
+                day={selectedDay} 
+                hour={selectedTime}
+                handleClick={handleClick} 
+                colorByStatus={colorByStatus} 
+            /> 
+          }
         </div>
       )}
     </div>

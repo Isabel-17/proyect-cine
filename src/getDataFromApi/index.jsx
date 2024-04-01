@@ -31,6 +31,7 @@ export function markChairAsBussy(chairsReservations, day, hour, id) {
     reservations[day] = reservations[day] || {};
     reservations[day][hour] = reservations[day][hour] || {};
     reservations[day][hour][id] = reservations[day][hour][id] || id;
-    console.log("sillas reservadas:",hour);
+    // console.log("Received Day:", day, "Received Hour:", hour);
+    console.log(reservations);
     return reservations;
 }

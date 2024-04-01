@@ -3,9 +3,8 @@ import { ChairSvg } from '../chairSvg'
 import { getChairFromJson, markChairAsBussy } from '../getDataFromApi'
 import './chairComponent.css'
 
-export function ChairComponent ({day, hour}) {
+export function ChairComponent ({day, hour, handleClick, colorByStatus}) {
     const [chairs, setChairs] = useState([]);
-    const [chairReservations, setReservations] = useState({})
 
     useEffect (()  => {
         dataChair()
@@ -16,15 +15,6 @@ export function ChairComponent ({day, hour}) {
         setChairs(result);
     };
 
-    const handleClick = (id) => {
-        let result = markChairAsBussy(chairReservations,day, hour, id)
-        setReservations(result)
-    } 
-
-    const colorByStatus = (day, hour, id) => {
-        let isReserved = chairReservations?.[day]?.[hour]?.[id]
-        return isReserved ? "#0d4146" : "#FFC4CE"
-    }
 
     return (
         <div className='container'>
