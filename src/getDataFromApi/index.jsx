@@ -7,12 +7,11 @@ export async function GetMovies () {
     return data
 }
 
-
 export async function getMovieByID(id) {
     const response = await fetch(jsonApi)
     const data = await response.json()
     const findIndexById = data.findIndex( movie => movie.id === id)
-    return data[findIndexById] // la peli con ese index 
+    return data[findIndexById] 
 }
 
 
