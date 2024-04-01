@@ -18,7 +18,6 @@ export function ChairComponent ({day, hour}) {
 
     const handleClick = (id) => {
         let result = markChairAsBussy(chairReservations,day, hour, id)
-        console.log(result)
         setReservations(result)
     } 
 
