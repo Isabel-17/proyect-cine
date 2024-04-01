@@ -79,7 +79,7 @@ export function SideBar () {
     setSelectedTime(null)
   };
   
-const handelTimeClick = async (time) => {
+  const handelTimeClick = async (time) => {
     setSelectedTime(time);
     const chairsForTime = await getChairFromJson(time); 
     setChairs(chairsForTime);
