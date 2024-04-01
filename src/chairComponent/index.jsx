@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import { ChairSvg } from '../chairSvg'
-import { getChairFromJson } from '../getDataFromApi'
+import { getChairFromJson, markChairAsBussy } from '../getDataFromApi'
 import './chairComponent.css'
 
-export function ChairComponent () {
+export function ChairComponent ({day, hour}) {
     const [chairs, setChairs] = useState([]);
+    const [chairReservations, setReservations] = useState({})
 
     useEffect (()  => {
         dataChair()
@@ -12,25 +13,30 @@ export function ChairComponent () {
 
     const dataChair = async () => {
         const result = await getChairFromJson()
-        const chairByColor = result.map(chair => ({...chair, color:'#FF768E'}));
-        setChairs(chairByColor);
+        setChairs(result);
     };
-    console.log(dataChair);
 
     const handleClick = (id) => {
-        setChairs(chairs.map(chair => chair.id === id ? {...chair, color: '#FFC4CE'}: chair))
+        let result = markChairAsBussy(chairReservations,day, hour, id)
+        console.log(result)
+        setReservations(result)
+    } 
+
+    const colorByStatus = (day, hour, id) => {
+        let isReserved = chairReservations?.[day]?.[hour]?.[id]
+        return isReserved ? "#0d4146" : "#FFC4CE"
     }
 
     return (
         <div className='container'>
             <div className='chair'>
-                {chairs.map(chair => (
-                    <ChairSvg 
-                        key={chair.id}
-                        chair={chair}
-                        color={chair.color}
-                        onClick={()=> handleClick(chair.id)}
+                {chairs.map(({id}) => (
+                    <div 
+                        key={id}
+                        onClick={()=> handleClick(id)}> 
+                        <ChairSvg color={colorByStatus(day, hour, id)}
                     />
+                    </div>
                  ))}
             </div>
             

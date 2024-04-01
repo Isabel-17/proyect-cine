@@ -8,9 +8,8 @@ export function SideBar () {
   const [selectedTime, setSelectedTime] = useState(null);
   const [chairs, setChairs] = useState([]);
 
-
   const schedules = {
-    Lunes: [
+    lunes: [
         '11:20 AM',
         '11:40 AM',
         '12:20 AM',
@@ -18,7 +17,7 @@ export function SideBar () {
         '8:00 AM',
         '11:30 PM'
     ],
-    Martes: [
+    martes: [
         '12:20 AM',
         '1:20 AM',
         '3:20 AM',
@@ -26,7 +25,7 @@ export function SideBar () {
         '8:00 AM',
         '11:30 PM'
     ],
-    Miércoles: [
+    miercoles: [
         '10:20 AM',
         '10:40 AM',
         '11:20 AM',
@@ -35,7 +34,7 @@ export function SideBar () {
         '8:00 AM',
         '11:30 PM'
     ],
-    Jueves: [
+    jueves: [
         '10:20 AM',
         '1:20 AM',
         '1:40 AM',
@@ -43,7 +42,7 @@ export function SideBar () {
         '8:00 AM',
         '11:30 PM'
     ],
-    Viernes: [
+    viernes: [
         '10:40 AM',
         '11:40 AM',
         '12:20 AM',
@@ -53,14 +52,14 @@ export function SideBar () {
         '8:00 AM',
         '11:30 PM'
     ],
-    Sábado: [
+    sabado: [
         '3:20 AM',
         '3:40 AM',
         '5:50 AM',
         '8:00 AM',
         '11:30 PM'
     ],
-    Domingo: [
+    domingo: [
         '10:20 AM',
         '10:40 AM',
         '11:20 AM',
@@ -111,7 +110,7 @@ const handelTimeClick = async (time) => {
               </li>            
             ))}
           </ul>
-          { selectedTime && <ChairComponent chairs={chairs}/> }
+          { selectedTime && <ChairComponent day={selectedDay} hour={selectedTime}/> }
         </div>
       )}
     </div>
