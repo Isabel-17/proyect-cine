@@ -26,11 +26,12 @@ export function existReservation(day, hour, id) {
     if(chairReserved) return true;
     return false
 }
-
+ 
 export function markChairAsBussy(chairsReservations, day, hour, id) {
     let reservations = Object.assign({}, chairsReservations)
+
     reservations[day] = reservations[day] || {};
-    reservations[day][hour] = reservations[day][hour] || {...res};
+    reservations[day][hour] = reservations[day][hour] || {};
     reservations[day][hour][id] = reservations[day][hour][id] || id;
     return reservations;
 }
