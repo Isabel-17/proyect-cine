@@ -6,7 +6,6 @@ import { getChairFromJson } from '../getDataFromApi';
 export function SideBar () {
   const [selectedDay, setSelectedDay] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
-  const [chairs, setChairs] = useState([]);
 
   const schedules = {
     lunes: [
@@ -80,8 +79,6 @@ export function SideBar () {
   
   const handelTimeClick = async (time) => {
     setSelectedTime(time);
-    const chairsForTime = await getChairFromJson(time); 
-    setChairs(chairsForTime);
   };
 
   
