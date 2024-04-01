@@ -1,13 +1,6 @@
-import { useState } from "react";
 
-export function ChairSvg({onClick, color}) {
-  const [currentColor, setCurrentColor] = useState(color);
+export function ChairSvg({color}) {
 
-  const handleClick = () => {
-    const newColor = currentColor === '#FF768E' ? '#FFC4CE' : '#FF768E';
-    setCurrentColor(newColor)
-    onClick();
-  };
     return (
         <svg
             version="1.1"
@@ -21,8 +14,8 @@ export function ChairSvg({onClick, color}) {
             viewBox="0 0 128 128"
             enableBackground="new 0 0 128 128"
             xmlSpace="preserve"
-            style={{ cursor: 'pointer', fill: currentColor}}
-            onClick={handleClick}
+            cursor="pointer"
+            fill={color}
       >  
         <g id="Syringe_2">
           <g>
