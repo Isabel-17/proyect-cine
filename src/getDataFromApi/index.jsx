@@ -1,4 +1,4 @@
-const jsonApi = 'src/JsonMovies/movies.json'
+const jsonApi = '../../src/JsonMovies/movies.json'
 const chairJsonApi = '../../src/JsonChair/chair.json'
 export async function GetMovies () {
     const response = await fetch(jsonApi)
@@ -7,10 +7,11 @@ export async function GetMovies () {
     return data
 }
 
-export async function getMovieByID(id) {
+export async function getMovieByID(idParam) {
     const response = await fetch(jsonApi)
     const data = await response.json()
-    const findIndexById = data.findIndex( movie => movie.id === id)
+    const findIndexById = data.findIndex( ({id}) => id === idParam)
+    console.log(data[findIndexById] )
     return data[findIndexById] 
 }
 

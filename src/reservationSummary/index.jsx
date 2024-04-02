@@ -1,7 +1,10 @@
 import { getMovieByID } from "../getDataFromApi"
+import { useParams } from "react-router-dom"
 
 export function ReservationSummary () {
-    const movie = getMovieByID()
+    const { id } = useParams()
+
+    const movie = getMovieByID(id)
     return (
         <div>
             <p>Pelicula: {movie.name}</p>
