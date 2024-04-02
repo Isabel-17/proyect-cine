@@ -1,63 +1,60 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
 import { ChairComponent } from '../chairComponent';
-import { markChairAsBussy } from '../getDataFromApi';
 
-export function Resevation ({day, hour}) {
+export function Reservation () {
   const [selectedDay, setSelectedDay] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
-  const [chairReservations, setReservations] = useState({})
-
 
   const schedules = {
     lunes: [
         '11:20 AM',
         '11:40 AM',
-        '12:20 AM',
-        '1:20 AM',
-        '8:00 AM',
+        '12:20 PM',
+        '1:20 PM',
+        '8:00 PM',
         '11:30 PM'
     ],
     martes: [
-        '12:20 AM',
-        '1:20 AM',
-        '3:20 AM',
-        '5:50 AM',
-        '8:00 AM',
+        '12:20 PM',
+        '1:20 PM',
+        '3:20 PM',
+        '5:50 PM',
+        '8:00 PM',
         '11:30 PM'
     ],
     miercoles: [
         '10:20 AM',
         '10:40 AM',
         '11:20 AM',
-        '3:40 AM',
-        '5:50 AM',
-        '8:00 AM',
+        '3:40 PM',
+        '5:50 PM',
+        '8:00 PM',
         '11:30 PM'
     ],
     jueves: [
         '10:20 AM',
-        '1:20 AM',
-        '1:40 AM',
-        '3:20 AM',
-        '8:00 AM',
+        '1:20 PM',
+        '1:40 PM',
+        '3:20 PM',
+        '8:00 PM',
         '11:30 PM'
     ],
     viernes: [
         '10:40 AM',
         '11:40 AM',
-        '12:20 AM',
-        '1:40 AM',
-        '3:20 AM',
-        '5:50 AM',
-        '8:00 AM',
+        '12:20 PM',
+        '1:40 PM',
+        '3:20 PM',
+        '5:50 PM',
+        '8:00 PM',
         '11:30 PM'
     ],
     sabado: [
-        '3:20 AM',
-        '3:40 AM',
-        '5:50 AM',
-        '8:00 AM',
+        '3:20 PM',
+        '3:40 PM',
+        '5:50 PM',
+        '8:00 PM',
         '11:30 PM'
     ],
     domingo: [
@@ -65,36 +62,24 @@ export function Resevation ({day, hour}) {
         '10:40 AM',
         '11:20 AM',
         '11:40 AM',
-        '12:20 AM',
-        '1:40 AM',
-        '3:20 AM',
-        '3:40 AM',
-        '5:50 AM',
-        '8:00 AM',
+        '12:20 PM',
+        '1:40 PM',
+        '3:20 PM',
+        '3:40 PM',
+        '5:50 PM',
+        '8:00 PM',
     ]
   };
 
   const handleDayClick = (day) => {
-    setSelectedDay(day);
-    setSelectedTime(null)
+      setSelectedDay(day);
+    // setSelectedTime(null)
   };
   
   const handelTimeClick = async (time) => {
     setSelectedTime(time);
   };
 
-  const handleClick = (id) => {
-    let result = markChairAsBussy(chairReservations,day, hour, id)
-    console.log(result);
-    setReservations(result)
-  } 
-
-  const colorByStatus = (day, hour, id) => {
-    let isReserved = chairReservations?.[day]?.[hour]?.[id]
-    return isReserved ? "#0d4146" : "#FFC4CE"
-  }
-
-  
   return (
     <div className="content-sidebar">
       <ul className='sidebar'>
@@ -124,8 +109,6 @@ export function Resevation ({day, hour}) {
             <ChairComponent 
                 day={selectedDay} 
                 hour={selectedTime}
-                handleClick={handleClick} 
-                colorByStatus={colorByStatus} 
             /> 
           }
         </div>

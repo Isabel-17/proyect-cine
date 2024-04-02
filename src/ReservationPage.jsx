@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { Header } from './header';
 import { Home } from './routeToHome';
-import { Resevation } from './sidebar';
+import { Reservation } from './reservation';
+import { ReservationSummary } from './reservationSummary';
 
 
 function ReservationPages() {
@@ -10,7 +11,8 @@ function ReservationPages() {
     <>
       <Home /> 
       <Header />
-      <Resevation />
+      <Reservation />
+      <ReservationSummary />
     </>
   );
 }

@@ -14,14 +14,13 @@ export async function getMovieByID(id) {
     return data[findIndexById] 
 }
 
-
 export async function getChairFromJson () {
     let result = await fetch(chairJsonApi);
     return await result.json() 
-}
+} 
 
-export function existReservation(day, hour, id) {
-    let chairReserved = reservations?.[day]?.[hour]?.[id]
+export function existReservation() {
+    let chairReserved = reservations
     if(chairReserved) return true;
     return false
 }
@@ -31,7 +30,5 @@ export function markChairAsBussy(chairsReservations, day, hour, id) {
     reservations[day] = reservations[day] || {};
     reservations[day][hour] = reservations[day][hour] || {};
     reservations[day][hour][id] = reservations[day][hour][id] || id;
-    // console.log("Received Day:", day, "Received Hour:", hour);
-    console.log(reservations);
     return reservations;
 }
