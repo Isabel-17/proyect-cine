@@ -4,7 +4,7 @@ import { getChairFromJson, markChairAsBussy, getMovieByID } from '../getDataFrom
 import './Reservation.css'
 import { useParams } from 'react-router-dom'
 
-export function Reservation ({day, hour }) {
+export function Reservation ({day, hour, backToInit }) {
     const { id } = useParams()
     const [chairs, setChairs] = useState([]);
     const [chairsReservations, setReservations] = useState({});
@@ -12,6 +12,7 @@ export function Reservation ({day, hour }) {
     const [ movie, setMovie ] = useState({})
     const [selectedDay, setSelectedDay] = useState(null);
     const [selectedHour, setSelectedHour] = useState(null);
+    const [chairSelecting, setChairSelecting] = useState([])
 
     
     useEffect (()  => {
@@ -36,6 +37,7 @@ export function Reservation ({day, hour }) {
 
         setSelectedDay(day);
         setSelectedHour(hour);
+        setChairSelecting(prevStatus => [...prevStatus, id])
     } 
     
     const colorByStatus = (day, hour, id) => {
@@ -72,8 +74,10 @@ export function Reservation ({day, hour }) {
     // Logica para boton de confimacion
     const handleConfirm = () => {
         setChairReserved([]);
-        setSelectedDay("");
+        setSelectedDay("lunes");
         setSelectedHour("");
+        setChairSelecting([])
+        backToInit()
     };
         
     return (
@@ -100,7 +104,7 @@ export function Reservation ({day, hour }) {
                     <p>Sillas Reservadas:</p>
                     <div className='componet_sillas'>
                     </div>
-                    {chairReserved.map((summary, index) =>(
+                    {chairSelecting.map((summary, index) =>(
                         <p key={index} >{summary}</p>
                     ))}
                 </div>
