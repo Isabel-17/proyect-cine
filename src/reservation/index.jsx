@@ -4,15 +4,17 @@ import { getChairFromJson, markChairAsBussy, getMovieByID } from '../getDataFrom
 import { useParams } from 'react-router-dom'
 import './Reservation.css'
 
-export function Reservation ({day, hour }) {
+export function Reservation ({day, hour, backToInit }) {
     const { id } = useParams()
     const [ chairs, setChairs ] = useState([]);
     const [ chairsReservations, setReservations ] = useState({});
     const [ chairReserved, setChairReserved ] = useState([])
     const [ movie, setMovie ] = useState({})
-    const [ selectedDay, setSelectedDay ] = useState(null);
-    const [ selectedHour, setSelectedHour ] = useState(null);
+    const [selectedDay, setSelectedDay] = useState(null);
+    const [selectedHour, setSelectedHour] = useState(null);
+    const [chairSelecting, setChairSelecting] = useState([])
 
+    
     useEffect (()  => {
         dataChair()
     },[day, hour])
@@ -35,6 +37,7 @@ export function Reservation ({day, hour }) {
 
         setSelectedDay(day);
         setSelectedHour(hour);
+        setChairSelecting(prevStatus => [...prevStatus, id])
     } 
     
     const colorByStatus = (day, hour, id) => {
@@ -71,9 +74,10 @@ export function Reservation ({day, hour }) {
     // Logica para boton de confimacion
     const handleConfirm = () => {
         setChairReserved([]);
-        setSelectedDay("");
+        setSelectedDay("lunes");
         setSelectedHour("");
-
+        setChairSelecting([])
+        backToInit()
     };
         
     return (
@@ -98,11 +102,11 @@ export function Reservation ({day, hour }) {
 
                 <div className='sillas_reservadas'>
                     <p>Sillas Reservadas:</p>
-                    <div className='componet_sillas'> 
-                        {chairReserved.map((summary, index) =>(
-                            <p key={index} >{summary}</p>
-                        ))}
+                    <div className='componet_sillas'>
                     </div>
+                    {chairSelecting.map((summary, index) =>(
+                        <p key={index} >{summary}</p>
+                    ))}
                 </div>
                 <div className='horarios'>
                     <p>Día seleccionado: {selectedDay || day}</p>

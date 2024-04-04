@@ -69,6 +69,7 @@ export function Heabdoard () {
     ]
   };
 
+  
   const initialSelectedDay = Object.keys(schedules)[0];
   const initialSelectedTime = schedules[initialSelectedDay][0];
 
@@ -85,6 +86,12 @@ export function Heabdoard () {
   const handelTimeClick = async (time) => {
     setSelectedTime(time);
   };
+
+  function setInitialDate(){
+    setSelectedDay(initialSelectedDay)
+    setSelectedTime(initialSelectedTime)
+  }
+
 
   return (
     <div className="content-sidebar">
@@ -114,6 +121,7 @@ export function Heabdoard () {
           <Reservation 
               day={selectedDay} 
               hour={selectedTime}
+              backToInit={setInitialDate}
           /> 
         </div>
       )}
