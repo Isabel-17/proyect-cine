@@ -67,7 +67,7 @@ export function Reservation ({day, hour }) {
     
     useEffect(() => {
         setChairReserved([]);
-    }, [hour, day]);
+    },[hour, day]);
 
     // Logica para boton de confimacion
     const handleConfirm = () => {
@@ -105,8 +105,8 @@ export function Reservation ({day, hour }) {
                     ))}
                 </div>
                 <div className='horarios'>
-                    <p>Día seleccionado: {selectedDay || day}</p>
-                    <p>Hora seleccionada: {selectedHour || hour}</p>
+                    <p>Día seleccionado: {day}</p>
+                    <p>Hora seleccionada: {hour}</p>
                 </div>
                 <div className='boton_confirmacion'>
                     <button onClick={handleConfirm}>Confirmar reserva</button>
