@@ -3,6 +3,7 @@
   display: flex; 
   justify-content: center; 
   align-items: center;
+  color: rgb(70, 70, 70);
   cursor: pointer;
 }
 .sidebar li {
@@ -30,6 +31,8 @@
   position: relative;
   justify-content: center; 
   align-items: center;
+  color: rgb(70, 70, 70);
+
 }
 .schedule li {
   display: flex;
@@ -43,6 +46,10 @@
   border-radius: 30px;
   cursor: pointer;
   box-shadow: 0 1px 8px rgb(252, 206, 206) ;
+}
+.schedule li:hover {
+  background-color: rgb(250, 160, 175);
+  
 }
 .selected {
   background-color: rgb(255, 99, 125) ;

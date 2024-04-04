@@ -1,19 +1,18 @@
 import { useEffect, useState } from 'react'
 import { ChairSvg } from '../chairSvg'
 import { getChairFromJson, markChairAsBussy, getMovieByID } from '../getDataFromApi'
-import './Reservation.css'
 import { useParams } from 'react-router-dom'
+import './Reservation.css'
 
 export function Reservation ({day, hour }) {
     const { id } = useParams()
-    const [chairs, setChairs] = useState([]);
-    const [chairsReservations, setReservations] = useState({});
-    const [chairReserved, setChairReserved] = useState([])
+    const [ chairs, setChairs ] = useState([]);
+    const [ chairsReservations, setReservations ] = useState({});
+    const [ chairReserved, setChairReserved ] = useState([])
     const [ movie, setMovie ] = useState({})
-    const [selectedDay, setSelectedDay] = useState(null);
-    const [selectedHour, setSelectedHour] = useState(null);
+    const [ selectedDay, setSelectedDay ] = useState(null);
+    const [ selectedHour, setSelectedHour ] = useState(null);
 
-    
     useEffect (()  => {
         dataChair()
     },[day, hour])
@@ -74,6 +73,7 @@ export function Reservation ({day, hour }) {
         setChairReserved([]);
         setSelectedDay("");
         setSelectedHour("");
+
     };
         
     return (
@@ -98,18 +98,26 @@ export function Reservation ({day, hour }) {
 
                 <div className='sillas_reservadas'>
                     <p>Sillas Reservadas:</p>
-                    <div className='componet_sillas'>
+                    <div className='componet_sillas'> 
+                        {chairReserved.map((summary, index) =>(
+                            <p key={index} >{summary}</p>
+                        ))}
                     </div>
-                    {chairReserved.map((summary, index) =>(
-                        <p key={index} >{summary}</p>
-                    ))}
                 </div>
                 <div className='horarios'>
                     <p>Día seleccionado: {selectedDay || day}</p>
                     <p>Hora seleccionada: {selectedHour || hour}</p>
                 </div>
-                <div className='boton_confirmacion'>
-                    <button onClick={handleConfirm}>Confirmar reserva</button>
+                <div >
+                    <button  
+                        className='boton_confirmacion' 
+                        onClick={handleConfirm}
+                    >
+                        Confirmar reserva
+                    </button>
+                </div>
+                <div>
+                    <button className='boton_clean'>Limpiar sala</button>
                 </div>
             </div>
         </>

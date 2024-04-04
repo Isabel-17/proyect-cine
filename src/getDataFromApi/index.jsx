@@ -1,9 +1,9 @@
 const jsonApi = '../../src/JsonMovies/movies.json'
 const chairJsonApi = '../../src/JsonChair/chair.json'
+
 export async function GetMovies () {
     const response = await fetch(jsonApi)
     const data = await response.json()
-    
     return data
 }
 
@@ -22,7 +22,6 @@ export async function getChairFromJson () {
 export function existReservation() {
     let chairReserved = reservations
     if(chairReserved) return true;
-
     return false
 }
  
