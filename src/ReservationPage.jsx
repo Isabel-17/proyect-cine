@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Header } from './header';
 import { Home } from './routeToHome';
-import { Reservation } from './reservation';
-import { ReservationSummary } from './reservationSummary';
-
+import { Heabdoard } from './headboard';
+// import { ReservadMoviesName } from './reservedMovieName';
+// import { ConfirmButton } from './confirmButton'
+// import { ReservadSchedule } from './reservedSchedule';
 
 function ReservationPages() {
 
@@ -11,10 +12,13 @@ function ReservationPages() {
     <>
       <Home /> 
       <Header />
-      <Reservation />
-      <ReservationSummary />
+      <Heabdoard />
+      {/* <ReservadMoviesName /> */}
+      {/* <ReservadSchedule/> */}
+      {/* <ConfirmButton/> */}
     </>
   );
 }
+
 
 export default ReservationPages;

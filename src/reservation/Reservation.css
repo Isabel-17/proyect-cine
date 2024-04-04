@@ -19,3 +19,13 @@
     text-align: center; 
     color: rgb(255, 105, 130);
 }
+.container_reservation {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container_reservation > div {
+    flex: 1 0 10%;
+}
+
+  

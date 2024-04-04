@@ -11,7 +11,6 @@ export async function getMovieByID(idParam) {
     const response = await fetch(jsonApi)
     const data = await response.json()
     const findIndexById = data.findIndex( ({id}) => id === idParam)
-    console.log(data[findIndexById] )
     return data[findIndexById] 
 }
 
@@ -23,6 +22,7 @@ export async function getChairFromJson () {
 export function existReservation() {
     let chairReserved = reservations
     if(chairReserved) return true;
+
     return false
 }
  

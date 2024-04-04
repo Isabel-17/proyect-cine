@@ -14,7 +14,6 @@ export function ChairSvg({color}) {
             enableBackground="new 0 0 128 128"
             xmlSpace="preserve"
             cursor="pointer"
-
             fill={color}
       >  
         <g id="Syringe_2">
