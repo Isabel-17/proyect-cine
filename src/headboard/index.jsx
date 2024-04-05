@@ -3,7 +3,7 @@ import './Headboard.css';
 import { DataContext } from '../provider';
 
 export function Heabdoard () {
-  const { day, setDay, setHour, hour, schedules} = useContext(DataContext)
+  const { day, setDay, setHour, hour, schedules, setChairSelecting} = useContext(DataContext)
    
 
   useEffect(() => {
@@ -19,11 +19,13 @@ export function Heabdoard () {
 
   const handleDayClick = (day) => {
       setDay(day);
-    // setSelectedTime(null)
+      setChairSelecting([])
+
   };
   
   const handelTimeClick = async (time) => {
     setHour(time);
+    setChairSelecting([])
   };
 
   return (

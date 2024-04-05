@@ -20,7 +20,6 @@ export function ChairRender () {
         setChairs(result);
     };
 
-     
  
     return (
         <div className='container'>

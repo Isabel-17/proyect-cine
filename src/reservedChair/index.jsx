@@ -2,17 +2,9 @@ import { useContext, useEffect } from "react";
 import { DataContext } from "../provider";
 import "./reservedChairs.css"
 
-export function ReservedChairs (reservations) {
+export function ReservedChairs () {
 
-    const {day, hour, chairSelecting, setChairReserved } = useContext(DataContext)
-
-    useEffect(() => {
-        let summary = [];
-        if (reservations[day] && reservations[day][hour]) {
-            summary = Object.keys(reservations[day][hour]);
-        }
-        setChairReserved(summary);
-    }, [reservations, day, hour, setChairReserved]);
+    const { chairSelecting } = useContext(DataContext)
 
     return(
         <div className='sillas_reservadas'>

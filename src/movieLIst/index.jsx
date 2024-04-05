@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import { Link } from 'react-router-dom';
 import './movieList.css';
-import { useContext } from 'react';
-import { DataContext } from '../provider';
+import { GetMovies } from '../getDataFromApi';
 
 export function MovieList() {
-  const {movies} = useContext(DataContext)
+    const [movies, setMovies] = useState([]);
+
+    useEffect(() => {
+        dataMovies();
+    }, []);
+
+  const dataMovies = async () => {
+    const result = await GetMovies();
+    setMovies(result);
+  };
 
     return (
         <div className='movie-list'>

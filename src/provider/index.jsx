@@ -1,18 +1,11 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { GetMovies } from "../getDataFromApi";
+import React, { useEffect, useState } from "react";
 import { createContext } from "react";
 
 const DataContext = createContext();
 
 function Provider({ children }) {
-  const [ chairs, setChairs ] = useState([]);
-  const [movies, setMovies] = useState([]);
   const [chairSelecting, setChairSelecting] = useState([]);
-  const [chairReserved, setChairReserved] = useState([]);
   const [chairsReservations, setReservations] = useState({});
-  const [selectedDay, setSelectedDay] = useState(null);
-  const [selectedHour, setSelectedHour] = useState(null);
-
 
   const schedules = {
     lunes: [
@@ -80,12 +73,11 @@ function Provider({ children }) {
   };
 
   const initialSelectedDay = Object.keys(schedules)[0];
-  const initialSelectedTime = schedules[initialSelectedDay][0];
+  const initialSelectedTime = (schedules[initialSelectedDay][0]);
 
   const [day, setDay] = useState(initialSelectedDay);
   const [hour, setHour] = useState(initialSelectedTime);
 
-  
   function markChairAsBussy(chairsReservation, day, hour, id) {
     let reservations = Object.assign({}, chairsReservation);
     reservations[day] = reservations[day] || {};
@@ -103,10 +95,7 @@ function Provider({ children }) {
       reservationsCopy = markChairAsBussy(reservationsCopy, day, hour, id);
     }
     setReservations(reservationsCopy);
-    reservedChairs(reservationsCopy);
-  
-    setSelectedDay(day);
-    setSelectedHour(hour);
+
     setChairSelecting((prevStatus) => [...prevStatus, id]);
 
   };
@@ -115,36 +104,15 @@ function Provider({ children }) {
     let isReserved = chairsReservations?.[day]?.[hour]?.[id];
     return isReserved ? "#ffccd5" : "#fc9aab";
   };
-
   
-  // Lista de películas
-  useEffect(() => {
-    dataMovies();
-  }, []);
-
-  const dataMovies = async () => {
-    const result = await GetMovies();
-    setMovies(result);
-  };
-
   // Resumen de sillas reservadas
-const reservedChairs = (reservations) => {
-  let summary = [];
-  if (reservations[day] && reservations[day][hour]) {
-    summary = Object.keys(reservations[day][hour]);
-  }
-  setChairReserved(summary); 
-};
-
-useEffect(() => {
-  setChairSelecting([]);
-}, [hour, day]);
-
+  useEffect((reservations) => {
+    if (reservations && reservations[day][hour]) {
+        summary = Object.keys(reservations[day][hour]);
+    }
+}, [ day, hour]);
 
 const handleConfirm = () => {
-  setChairReserved([]);
-  setSelectedDay("lunes");
-  setSelectedHour("");
   setChairSelecting([])
 };
 
@@ -153,7 +121,6 @@ const backToInit = () => {
   delete newReservations[day][hour];
   
   setReservations(newReservations);
-  setChairReserved([]);
   setChairSelecting([]);
 };
 
@@ -163,16 +130,14 @@ const handleClickClean = () => {
   return (
     <DataContext.Provider
       value={{
-        movies,
         hour,
         setHour,
         day,
         setDay,
         chairSelecting,
-        setChairReserved,
+        setChairSelecting,
         schedules,
         handleClick,
-        chairs,
         chairsReservations,
         handleConfirm,
         handleClickClean,
@@ -185,51 +150,3 @@ const handleClickClean = () => {
 }
 
 export { Provider, DataContext };
-
-
-
-
-
-
-
-
-
-
-
-// .boton_confirmacion {
-//   color: rgb(255, 255, 255); 
-//   padding: 10px 20px;
-//   background-color: rgb(255, 122, 144);
-//   border: none;
-//   border-radius: 5px;
-//   cursor: pointer;
-//   transition: background-color 0.3s, transform 0.2s; 
-// }
-
-// .boton_confirmacion:active {
-//   background-color: rgb(255, 95, 122); 
-//   transform: translateY(2px);
-// }
-// .boton_clean {
-//   display: flex;
-//   position: relative;
-//   justify-content: center;
-//   align-items: center;
-//   top: 50px;
-//   right: 215px;
-//   width: 145px;
-//   background-color: transparent; 
-//   color: rgb(73, 73, 73); 
-//   padding: 10px 20px;
-//   border: 1px solid rgb(248, 84, 112); 
-//   border-radius: 5px;
-//   cursor: pointer;
-//   transition: background-color 0.3s, transform 0.2s; 
-// }
-
-// .boton_clean:active {
-//   background-color: rgb(248, 84, 112); 
-//   transform: translateY(2px); 
-// }
-
-// /* setChair () */
