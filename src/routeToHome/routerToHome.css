@@ -4,9 +4,10 @@
     align-items: center;    
     margin-left:1300px;
     list-style-type: none;
-    color: #ff99aa;
+    color: rgb(255, 114, 138);
     font-weight: 500;
     text-decoration: none;
     z-index: 1000;
+    top: 30px;
 }
   

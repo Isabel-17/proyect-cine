@@ -19,16 +19,3 @@ export async function getChairFromJson () {
     return await result.json() 
 } 
 
-export function existReservation() {
-    let chairReserved = reservations
-    if(chairReserved) return true;
-    return false
-}
- 
-export function markChairAsBussy(chairsReservations, day, hour, id) {
-    let reservations = Object.assign({}, chairsReservations)
-    reservations[day] = reservations[day] || {};
-    reservations[day][hour] = reservations[day][hour] || {};
-    reservations[day][hour][id] = reservations[day][hour][id] || id;
-    return reservations;
-}

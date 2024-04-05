@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
 import { Header } from './header';
 import { Home } from './routeToHome';
 import { Heabdoard } from './headboard';
-
+import { MovieName } from './MovieName';
+import { ReservedChairs } from './reservedChair';
+import { ChairRender } from './chairRender';
 
 function ReservationPages() {
   return (
@@ -10,6 +11,9 @@ function ReservationPages() {
       <Home /> 
       <Header />
       <Heabdoard />
+      <ChairRender />
+      <MovieName />
+      <ReservedChairs/>
     </>
   );
 }
