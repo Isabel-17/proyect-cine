@@ -2,6 +2,8 @@
     display: grid;
     grid-template-columns: repeat(6, 10fr);
     gap: 10px;
+    cursor: pointer;
+    z-index: 3000;
 
 }
 

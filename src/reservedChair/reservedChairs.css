@@ -1,0 +1,30 @@
+.sillas_reservadas {
+    display: flex;
+    position: relative;
+    bottom: 290px;
+    left: 70px;
+    color: rgb(255, 87, 115);
+    font-weight: bold;
+}
+
+.componet_sillas {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 200px;
+}
+
+.componet_sillas p {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: 5px; 
+    padding: 5px 8px; 
+    background-color: pink;
+    border-radius: 5px;
+    font-size: 14px;
+    min-width: calc(25% - 10px); 
+    box-sizing: border-box; 
+    left: 20px;
+    color: rgb(92, 92, 92);
+}

@@ -1,13 +1,17 @@
-// import React, { useState } from 'react';
+import { useContext } from "react";
+import { DataContext } from "../provider";
+import "./confirmButton.css"
 
-// export  function ConfirmButton() {
-//     const [selectedChairs, setSelectedChairs] = useState(true);
-
-//     const handleConfirmReservation = () => {
-//         setSelectedChairs(false); // Limpiar la lista de sillas seleccionadas al confirmar la reserva
-//         console.log("click");
-//     };
-//     return (
-//         <button onClick={handleConfirmReservation}>Confirmar reserva</button>
-//     );
-// }
+export  function ConfirmButton() {
+   const { handleConfirm } = useContext(DataContext)
+    return (
+        <div >
+            <button  
+                className='boton_confirmacion' 
+                onClick={handleConfirm}
+            >
+                Confirmar reserva
+            </button>
+        </div>
+    );
+}

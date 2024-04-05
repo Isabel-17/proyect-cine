@@ -13,7 +13,6 @@ export function ChairSvg({color}) {
             viewBox="0 0 128 128"
             enableBackground="new 0 0 128 128"
             xmlSpace="preserve"
-            cursor="pointer"
             fill={color}
       >  
         <g id="Syringe_2">

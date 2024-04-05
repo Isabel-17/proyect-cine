@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getMovieByID } from "../getDataFromApi";
 import { useParams } from "react-router-dom";
+import "./movieName.css"
 
 export function MovieName () {
     const { id } = useParams()
@@ -17,7 +18,8 @@ export function MovieName () {
 
     return (
         <div className='pelicula'>
-            <p>Pelicula: {movie?.name}</p>
+            <p>Pelicula: </p>
+            <p className="p_movie">{movie?.name}</p>
         </div>
     )
 }

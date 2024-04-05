@@ -1,0 +1,38 @@
+
+.horarios {
+    display: flex;
+    position: relative;
+    bottom: 290px ;
+    left: 70px;
+   
+}
+.day_container {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+}
+.p_daySelect{
+    color: rgb(255, 87, 115);
+    font-weight: bold;
+}
+.p_day {
+    color: rgb(80, 80, 80);
+    display: flex;
+    position: relative;
+    left: 10px;
+}
+.hour_container {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+}
+.p_hourSelected {
+    color: rgb(255, 87, 115);
+    font-weight: bold;
+}
+.p_hour {
+    color: rgb(80, 80, 80);
+    display: flex;
+    position: relative;
+    left: 10px;
+}

@@ -29,12 +29,12 @@ export function Heabdoard () {
   return (
     <div className="content-sidebar">
       <ul className='sidebar'>
-        {Object.keys(schedules).map((day) => (
-          <li key={day} 
-            onClick={() => handleDayClick(day)} 
-            className={day === day ? 'selected' : ''}
+        {Object.keys(schedules).map((dayOfWeek) => (
+          <li key={dayOfWeek} 
+            onClick={() => handleDayClick(dayOfWeek)} 
+            className={day === dayOfWeek ? 'selected' : ''}
           >
-            {day}
+            {dayOfWeek}
           </li>
         ))}
       </ul>

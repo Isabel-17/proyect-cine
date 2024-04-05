@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { DataContext } from "../provider";
+import "./reservedChairs.css"
 
 export function ReservedChairs (reservations) {
 
@@ -15,10 +16,10 @@ export function ReservedChairs (reservations) {
 
     return(
         <div className='sillas_reservadas'>
-            <p>Sillas Reservadas:</p>
+            <p > Sillas reservadas: </p>
             <div className='componet_sillas'>
                 {chairSelecting.map((summary, index) =>(
-                    <p key={index} >{summary}</p>
+                    <p className='p_chair'key={index}> {summary} </p>
                 ))}
             </div>
         </div>  

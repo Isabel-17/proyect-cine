@@ -1,0 +1,17 @@
+.boton_confirmacion {
+    position: fixed;
+    right: 200px; 
+    top: 40%; 
+    color: rgb(255, 255, 255); 
+    padding: 10px 20px;
+    background-color: rgb(255, 150, 168);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; 
+}
+  
+.boton_confirmacion:active {
+    background-color: rgb(255, 95, 122); 
+    transform: translateY(2px);
+}

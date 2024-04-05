@@ -1,0 +1,15 @@
+.pelicula {
+    display: flex;
+    position: relative;
+    top: -280px;
+    left: 70px;
+    color: rgb(255, 87, 115);
+    font-weight: bold;
+}
+.p_movie{
+    display: flex;
+    position: relative;
+    color: rgb(80, 80, 80);
+    font-weight: lighter;
+    left: 10px;
+}

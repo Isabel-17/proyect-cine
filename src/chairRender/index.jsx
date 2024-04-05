@@ -7,7 +7,7 @@ import  "./ChairRender.css"
 export function ChairRender () {
     const [ chairs, setChairs] = useState([]);
 
-    const { handleClick, day, hour, chairsReservations } = useContext(DataContext)
+    const { handleClick, day, hour, chairsReservations, colorByStatus } = useContext(DataContext)
 
     const chairCounter = chairs.filter(({ id }) => !chairsReservations?.[day]?.[hour]?.[id]).length;
 
@@ -21,11 +21,7 @@ export function ChairRender () {
     };
 
      
-  const colorByStatus = (day, hour, id) => {
-    let isReserved = chairsReservations?.[day]?.[hour]?.[id];
-    return isReserved ? "#ffccd5" : "#fc9aab";
-  };
-
+ 
     return (
         <div className='container'>
         <h2 className='counterChair'>{chairCounter} sillas disponibles</h2>
